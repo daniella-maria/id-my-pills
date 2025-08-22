@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALPRAZOLAM</title>
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 8vw;
+    font-weight: bold;
+    margin-top: 20vh;
+  }
+  #play-btn {
+    font-size: 5vw;
+    padding: 20px 40px;
+    margin-top: 5vh;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: none;
+  }
+  #play-btn:focus {
+    outline: 4px solid #fff;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Drug Name -->
+  <h1 id="drug-name">ALPRAZOLAM</h1>
+
+  <!-- Audio -->
+  <audio id="drug-audio" src="Alprazolam.mp3" preload="auto"></audio>
+
+  <!-- Fallback Play Button -->
+  <button id="play-btn" aria-label="Play drug name">
+    🔊 Tap to Hear Name
+  </button>
+
+  <script>
+    const audio = document.getElementById('drug-audio');
+    const button = document.getElementById('play-btn');
+
+    // Try to autoplay on page load
+    window.addEventListener('load', () => {
+      audio.play().catch(() => {
+        // If autoplay blocked, show button
+        button.style.display = 'inline-block';
+      });
+    });
+
+    // Button click plays audio
+    button.addEventListener('click', () => {
+      audio.play();
+      button.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
